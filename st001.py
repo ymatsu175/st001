@@ -82,9 +82,13 @@ with st.expander("＋ リストに新しく追加する"):
 # --- 3. 送信およびスプレッドシート書き込み処理 ---
 st.divider()
 
+import datetime
+
 if st.button("送信・保存", type="primary", use_container_width=True):
     # 送信するデータをリスト形式で準備（スプレッドシートの列の並び順に合わせます）
+    now= str(datetime.datetime.now())
     row_data = [
+        now, # 現在時刻
         option_radio,  # 1列目: 状態
         option_radio2,  # 2列目: 色
         my_value,  # 3列目: 残り本数 (花なら0)
@@ -101,8 +105,10 @@ if st.button("送信・保存", type="primary", use_container_width=True):
         st.success("スプレッドシートへの保存が完了しました！")
 
         # 保存された内容を表示（確認用）
+        dmy= r'''
         st.json(
             {
+                "日時 (now)": now,
                 "状態 (option_radio)": option_radio,
                 "色 (option_radio2)": option_radio2,
                 "残り本数 (my_value)": my_value,
@@ -111,6 +117,7 @@ if st.button("送信・保存", type="primary", use_container_width=True):
                 "花の種類 (selected_flower)": selected_flower,
             }
         )
+        '''
 
     except Exception as e:
         st.error(f"保存中にエラーが発生しました: {e}")
