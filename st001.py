@@ -7,7 +7,11 @@ st.title("データ入力")
 
 # 2. ラジオボタン（A, B, C, D）
 # 横並びにしたい場合は horizontal=True を設定
-option_radio = st.radio("【1】 色を選択", ["白", "黃", "赤", "青"], horizontal=True)
+option_radio1 = st.radio("【1】 状態を選択", ["ふたば", "蕾", "花"], horizontal=True)
+
+# 2. ラジオボタン（A, B, C, D）
+# 横並びにしたい場合は horizontal=True を設定
+option_radio2 = st.radio("【1】 色を選択", ["白", "黃", "赤", "青"], horizontal=True)
 
 # 3. 残り時間（時間・分の数値入力）
 st.write("【2】 残り時間")
@@ -18,7 +22,7 @@ with col2:
     minutes = st.number_input("分", min_value=0, max_value=59, value=20, step=1)
 
 # 4. 動的な選択肢（コンボボックス＋新規追加機能）
-st.write("【3】 フルーツ選択")
+st.write("【3】 種類選択")
 
 # セッション状態（st.session_state）で選択肢を保持
 if "fruit_list" not in st.session_state:
@@ -42,5 +46,5 @@ with st.expander("＋ リストに新しく追加する"):
 st.divider()
 if st.button("送信・保存", type="primary", use_container_width=True):
     st.success(
-        f"送信完了: {option_radio} / {hours}時間{minutes}分 / {selected_fruit}"
+        f"送信完了: {option_radio1} {option_radio2} / {hours}時間{minutes}分 / {selected_fruit}"
     )
