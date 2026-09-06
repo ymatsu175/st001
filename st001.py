@@ -11,7 +11,7 @@ option_radio1 = st.radio("【1】 状態を選択", ["ふたば", "蕾", "花"],
 
 # 2. ラジオボタン（A, B, C, D）
 # 横並びにしたい場合は horizontal=True を設定
-option_radio2 = st.radio("【2】 色を選択", ["白", "黃", "赤", "青"], horizontal=True)
+option_radio2 = st.radio("【2】 色を選択(〜になりそう)", ["不明", "白", "黃", "赤", "青"], horizontal=True)
 
 # 3. 残り時間（時間・分の数値入力）
 st.write("【3】 残り時間")
