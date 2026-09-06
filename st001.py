@@ -11,10 +11,10 @@ option_radio1 = st.radio("【1】 状態を選択", ["ふたば", "蕾", "花"],
 
 # 2. ラジオボタン（A, B, C, D）
 # 横並びにしたい場合は horizontal=True を設定
-option_radio2 = st.radio("【1】 色を選択", ["白", "黃", "赤", "青"], horizontal=True)
+option_radio2 = st.radio("【2】 色を選択", ["白", "黃", "赤", "青"], horizontal=True)
 
 # 3. 残り時間（時間・分の数値入力）
-st.write("【2】 残り時間")
+st.write("【3】 残り時間")
 col1, col2 = st.columns(2)
 with col1:
     hours = st.number_input("時間", min_value=0, max_value=99, value=3, step=1)
@@ -22,7 +22,7 @@ with col2:
     minutes = st.number_input("分", min_value=0, max_value=59, value=20, step=1)
 
 # 4. 動的な選択肢（コンボボックス＋新規追加機能）
-st.write("【3】 種類選択")
+st.write("【4】 種類選択")
 
 # セッション状態（st.session_state）で選択肢を保持
 if "fruit_list" not in st.session_state:
