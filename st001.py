@@ -8,7 +8,11 @@ st.set_page_config(page_title="条件分岐入力アプリ", layout="centered")
 # --- 1. Google スプレッドシート接続処理 ---
 @st.cache_resource
 def get_gspread_client():
-    scopes = ["https://www.googleapis.com/auth/spreadsheets"]
+    # スコープに drive を追加します
+    scopes = [
+        "https://www.googleapis.com/auth/spreadsheets",
+        "https://www.googleapis.com/auth/drive",
+    ]
     credentials_dict = dict(st.secrets["gcp_service_account"])
     credentials_dict["private_key"] = credentials_dict[
         "private_key"
