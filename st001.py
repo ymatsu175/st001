@@ -7,7 +7,7 @@ st.title("データ入力")
 
 # 2. ラジオボタン（A, B, C, D）
 # 横並びにしたい場合は horizontal=True を設定
-option_radio = st.radio("【1】 区分を選択", ["A", "B", "C", "D"], horizontal=True)
+option_radio = st.radio("【1】 色を選択", ["白", "黃", "赤", "青"], horizontal=True)
 
 # 3. 残り時間（時間・分の数値入力）
 st.write("【2】 残り時間")
