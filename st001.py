@@ -100,11 +100,11 @@ st.divider()
 import datetime
 
 if "dt_now_old" not in st.session_state:
-    st.session_state.dt_now_old= datetime.datetime.now()
+    st.session_state.dt_now_old= datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9)))
 
 if st.button("送信・保存", type="primary", use_container_width=True):
     # 送信するデータをリスト形式で準備（スプレッドシートの列の並び順に合わせます）
-    dt_now= datetime.datetime.now()
+    dt_now= datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9)))
     #print(dt_now_old.timestamp())
     #print(dt_now.timestamp()-10)
     if st.session_state.dt_now_old.timestamp() < dt_now.timestamp()-10:
